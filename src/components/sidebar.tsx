@@ -12,7 +12,7 @@ const Sidebar: FC<PropsWithChildren<Record<string, unknown>>> = function ({
   return (
     <div
       className={classNames(
-        "fixed overflow-auto top-0 h-screen z-10 lg:sticky lg:!block",
+        "fixed overflow-auto top-16 h-screen z-10 lg:!block",
         {
           hidden: !isSidebarOpenOnSmallScreens,
         }
