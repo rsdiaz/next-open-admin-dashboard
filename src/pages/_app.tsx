@@ -24,7 +24,3 @@ const App: FC<AppProps> = ({ Component, pageProps }): JSX.Element => {
 }
 
 export default App
-
-/* export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-} */
