@@ -1,62 +1,29 @@
-import Sidebar from '@/components/sidebar'
-import { HiChartPie, HiTemplate, HiTable } from 'react-icons/hi'
-import Navbar from '@/components/navbar';
+import { HiHome } from 'react-icons/hi'
+import { Breadcrumb } from 'flowbite-react';
+import SidebarLayout from '@/layout/sidebar-layout';
 
-function ActualSidebar(): JSX.Element {
-  return (
-    <Sidebar>
-      <Sidebar.Logo
-        href="#"
-        img="https://flowbite-admin-dashboard.vercel.app/images/logo.svg"
-        imgAlt="Flowbite logo"
-      >
-        Flowbite
-      </Sidebar.Logo>
-      <Sidebar.Items>
-        <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiChartPie}>
-            Dashboard
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiTemplate}>
-            Layouts
-          </Sidebar.Item>
-          <Sidebar.Collapse
-            icon={HiTable}
-            label="CRUD"
-          >
-            <Sidebar.Item href="#">
-              Products
-            </Sidebar.Item>
-            <Sidebar.Item href="#">
-              Users
-            </Sidebar.Item>
-          </Sidebar.Collapse>
-          <Sidebar.Collapse
-            icon={HiTable}
-            label="Authentication"
-          >
-            <Sidebar.Item href="/authentication/sign-in">
-              Sign In
-            </Sidebar.Item>
-            <Sidebar.Item href="#">
-              Users
-            </Sidebar.Item>
-          </Sidebar.Collapse>
-        </Sidebar.ItemGroup>
-      </Sidebar.Items>
-    </Sidebar>
-  );
-}
 
 export default function Home() {
   return (
-    <div className="flex dark:bg-gray-900">
-      <Navbar />
-      <main className="order-2 mx-4 mt-4 mb-24 flex-[1_0_16rem]">
-      </main>
-      <div className="order-1">
-        <ActualSidebar />
+    <SidebarLayout>
+      <div className="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full mb-1">
+          <div className="mb-4">
+            <Breadcrumb aria-label="Default breadcrumb example" className='mb-5'>
+              <Breadcrumb.Item
+                href="#"
+                icon={HiHome}
+              >
+                Home
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>
+                Users
+              </Breadcrumb.Item>
+            </Breadcrumb>
+            <h1 className="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">All users</h1>
+          </div>
+        </div>
       </div>
-    </div>
+    </SidebarLayout>
   )
 }
