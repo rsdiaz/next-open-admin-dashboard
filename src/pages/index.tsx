@@ -1,6 +1,5 @@
 import Sidebar from '@/components/sidebar'
-import { HiChartPie } from 'react-icons/hi'
-import Head from 'next/head'
+import { HiChartPie, HiTemplate, HiTable } from 'react-icons/hi'
 import Navbar from '@/components/navbar';
 
 function ActualSidebar(): JSX.Element {
@@ -18,9 +17,31 @@ function ActualSidebar(): JSX.Element {
           <Sidebar.Item href="#" icon={HiChartPie}>
             Dashboard
           </Sidebar.Item>
-          <Sidebar.Item href="#">
-            Kanban
+          <Sidebar.Item href="#" icon={HiTemplate}>
+            Layouts
           </Sidebar.Item>
+          <Sidebar.Collapse
+            icon={HiTable}
+            label="CRUD"
+          >
+            <Sidebar.Item href="#">
+              Products
+            </Sidebar.Item>
+            <Sidebar.Item href="#">
+              Users
+            </Sidebar.Item>
+          </Sidebar.Collapse>
+          <Sidebar.Collapse
+            icon={HiTable}
+            label="Authentication"
+          >
+            <Sidebar.Item href="/authentication/sign-in">
+              Sign In
+            </Sidebar.Item>
+            <Sidebar.Item href="#">
+              Users
+            </Sidebar.Item>
+          </Sidebar.Collapse>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
