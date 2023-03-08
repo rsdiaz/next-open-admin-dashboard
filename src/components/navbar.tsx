@@ -1,9 +1,16 @@
+/** App config import */
 import appConfig from '@/config/appConfig'
-import { DarkThemeToggle } from 'flowbite-react'
+
+/** Next imports */
 import Image from 'next/image'
+/** Context imports */
 import { useSidebarContext } from '../context/SidebarContext'
-import { useLocalStorage } from '@/hooks/useLocalStorage'
-import { useDarkMode } from '@/hooks/useDarkMode'
+
+/** Hooks imports */
+import { useSettings } from '@/hooks/useDarkMode'
+
+/** Icons imports */
+import { HiMoon, HiSun } from 'react-icons/hi'
 
 const MenuToggle = () => {
   const { isOpenOnSmallScreens, isPageWithSidebar, setOpenOnSmallScreens } =
@@ -144,7 +151,13 @@ const NavbarNotification = () => {
 }
 
 const Navbar = () => {
-  const { darkMode, setDarkMode } = useDarkMode()
+  // const { darkMode, setDarkMode } = useDarkMode()
+  const { settings, saveSettings } = useSettings()
+
+  const handleClick = () => {
+    const darkMode = settings.themeMode
+    saveSettings({ themeMode: darkMode === 'dark' ? 'light' : 'dark' })
+  }
 
   return (
     <nav className="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -158,10 +171,17 @@ const Navbar = () => {
           <div className="flex items-center">
             <MobileSearch />
             <NavbarNotification />
-            <DarkThemeToggle
-              theme={{}}
-              onClick={() => setDarkMode(!darkMode)}
-            />
+            <button
+              onClick={() => handleClick()}
+              className="rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >
+              {settings.themeMode === 'dark' ? (
+                <HiSun aria-label="Currently dark mode" className="h-5 w-5" />
+              ) : (
+                <HiMoon aria-label="Currently light mode" className="h-5 w-5" />
+              )}
+            </button>
+            {/* <DarkThemeToggle theme={{}} onClick={() => handleClick()} /> */}
           </div>
         </div>
       </div>
