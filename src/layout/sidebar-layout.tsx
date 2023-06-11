@@ -1,8 +1,10 @@
-import Sidebar from "@/components/sidebar";
-import { Breadcrumb } from "flowbite-react"
-import Navbar from '@/components/navbar';
+import Sidebar from '@/components/sidebar'
+import Navbar from '@/components/navbar'
 import { HiChartPie, HiTemplate, HiTable, HiHome } from 'react-icons/hi'
-
+import useAuth from '@/hooks/useAuth'
+import { Spinner } from 'flowbite-react'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 function ActualSidebar(): JSX.Element {
   return (
@@ -22,32 +24,18 @@ function ActualSidebar(): JSX.Element {
           <Sidebar.Item href="#" icon={HiTemplate}>
             Layouts
           </Sidebar.Item>
-          <Sidebar.Collapse
-            icon={HiTable}
-            label="CRUD"
-          >
-            <Sidebar.Item href="#">
-              Products
-            </Sidebar.Item>
-            <Sidebar.Item href="/cruds/users">
-              Users
-            </Sidebar.Item>
+          <Sidebar.Collapse icon={HiTable} label="CRUD">
+            <Sidebar.Item href="#">Products</Sidebar.Item>
+            <Sidebar.Item href="/cruds/users">Users</Sidebar.Item>
           </Sidebar.Collapse>
-          <Sidebar.Collapse
-            icon={HiTable}
-            label="Authentication"
-          >
-            <Sidebar.Item href="/authentication/sign-in">
-              Sign In
-            </Sidebar.Item>
-            <Sidebar.Item href="#">
-              Users
-            </Sidebar.Item>
+          <Sidebar.Collapse icon={HiTable} label="Authentication">
+            <Sidebar.Item href="/authentication/sign-in">Sign In</Sidebar.Item>
+            <Sidebar.Item href="#">Users</Sidebar.Item>
           </Sidebar.Collapse>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
-  );
+  )
 }
 
 const SidebarLayout = ({ children }: any) => {

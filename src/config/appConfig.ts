@@ -1,10 +1,10 @@
-type AppConfig = {
+export type AppConfig = {
   appName: string
   logoUrl: string 
 }
 
 const appConfig: AppConfig = {
-  appName: 'Admin Dashboard',
+  appName: 'Next Admin Dashboard',
   logoUrl: 'https://flowbite-admin-dashboard.vercel.app/images/logo.svg',
 }
 
