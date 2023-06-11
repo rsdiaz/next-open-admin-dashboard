@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-const YOUR_API_URL = 'https://api.multipublicador.grupolivamotor.com/signin'
+const YOUR_API_URL = ''
 
 export const authOptions = {
   providers: [
